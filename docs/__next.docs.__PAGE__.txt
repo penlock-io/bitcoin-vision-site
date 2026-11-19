@@ -1,0 +1,270 @@
+1:"$Sreact.fragment"
+2:"/_next/static/chunks/3qfy96eoyh-ek.js"
+3:I[39756,["$2"],"default"]
+4:I[37457,["$2"],"default"]
+b:"/_next/static/chunks/2qe36aokysctc.js"
+c:I[9616,["$2","$b"],"default"]
+14:"ViewportBoundary"
+15:I[97367,["$2"],"$14"]
+16:"MetadataBoundary"
+17:I[97367,["$2"],"$16"]
+18:"$Sreact.suspense"
+19:I[27201,["$2"],"IconMark"]
+:HL["/_next/static/chunks/2qwrmnhsk4rvg.css","style"]
+6:X
+9:X
+9:C
+d:T67c,<h2 id="overview">Overview</h2>
+<p>bitcoin-vision turns a photo of a handwritten Bitcoin backup into structured, checkable data, entirely offline. It is a Rust library for wallet makers and app developers: you hand it an image, and it hands back what it read, how sure it is, and what it would ask the user to confirm.</p>
+<p>It reads two kinds of backup:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Backup</th>
+<th>What is on the paper</th>
+<th>What you get back</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BIP39 recovery phrase</td>
+<td>12 or more handwritten English seed words</td>
+<td>Each word&#39;s position, crop, OCR text, probabilities over all 2048 words, and whether the phrase passes its checksum</td>
+</tr>
+<tr>
+<td>Penlock share</td>
+<td>A worksheet strip of 12 rows × 6 symbols</td>
+<td>A probability over the 29 Penlock symbols for every cell, ready for Penlock&#39;s per-word check and 2-of-3 recombination</td>
+</tr>
+</tbody></table></div>
+<p>The crates make no network calls, do not log, and never contact a wallet. Your app owns the photo, the result and their deletion.</p>
+<p>Who this guide is for:</p>
+<ul>
+<li><strong>Hardware wallet makers</strong> adding camera-based backup entry, as in the Penlock app prototype for Passport Prime, tested on the simulator.</li>
+<li><strong>Mobile wallet developers</strong> who want a scan step instead of typing 12 words.</li>
+<li><strong>Penlock tool builders</strong> who need shares read back from paper.</li>
+</ul>
+<h2 id="architecture">Architecture</h2>
+<p>Every scan follows one of two pipelines, both ending in the same place: the user reviews what was read before anything is used.</p>
+a:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$1","c",{"children":[[["$","$Lc",null,{}],["$","div",null,{"className":"frame","children":[["$","main",null,{"className":"docs","children":[["$","aside",null,{"className":"docs-toc","children":["$","nav",null,{"aria-label":"On this page","children":[["$","p",null,{"className":"kicker","children":"On this page"}],["$","ol",null,{"children":[["$","li","overview",{"children":["$","a",null,{"href":"#overview","children":"Overview"}]}],["$","li","architecture",{"children":["$","a",null,{"href":"#architecture","children":"Architecture"}]}],["$","li","quickstart",{"children":["$","a",null,{"href":"#quickstart","children":"Quickstart"}]}],["$","li","library-api",{"children":["$","a",null,{"href":"#library-api","children":"Library API"}]}],["$","li","penlock-shares",{"children":["$","a",null,{"href":"#penlock-shares","children":"Penlock shares"}]}],["$","li","hardware-wallet-integration",{"children":["$","a",null,{"href":"#hardware-wallet-integration","children":"Hardware wallet integration"}]}],["$","li","mobile-integration",{"children":["$","a",null,{"href":"#mobile-integration","children":"Mobile integration"}]}],["$","li","ux-requirements",{"children":["$","a",null,{"href":"#ux-requirements","children":"UX requirements"}]}],["$","li","security-checklist",{"children":["$","a",null,{"href":"#security-checklist","children":"Security checklist"}]}],["$","li","limits-and-licensing",{"children":["$","a",null,{"href":"#limits-and-licensing","children":"Limits and licensing"}]}],["$","li","sources",{"children":["$","a",null,{"href":"#sources","children":"Sources"}]}]]}]]}]}],["$","article",null,{"className":"docs-body","children":[["$","p",null,{"className":"kicker","children":"Docs · Integration guide"}],["$","h1",null,{"className":"h1 docs-title","children":"Integration guide"}],["$","p",null,{"className":"lead","children":"How to add bitcoin-vision to a hardware or mobile wallet: the Rust API, both pipelines, the review flow your users need, and a security checklist."}],["$","p",null,{"className":"docs-updated","children":"Updated 7 November 2026"}],["$","div",null,{"className":"prose","dangerouslySetInnerHTML":{"__html":"$d"}}],"$Le","$Lf"]}]]}],"$L10"]}]],["$L11"],"$L12"]}],"p":"$@13","v":null,"s":"$6"}}]]
+7:[["children",{"s":"docs","h":96,"d":{"r":["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","template":["$","$L4",null,{}]}]]}],"p":"$@8","v":"$9","s":"$6"},"c":"$Qa"}]]
+0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/2qwrmnhsk4rvg.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/3qfy96eoyh-ek.js","async":true}]],["$","html",null,{"lang":"en","className":"c-rD7q_variable x0Kcuq_variable _8qgo4a_variable","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"dangerouslySetInnerHTML":{"__html":"try{var t=localStorage.getItem('bv-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}"}}]}],["$","body",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","template":["$","$L4",null,{}],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]]}]}]]}]]}],"p":"$@5","v":null,"s":"$6"},"c":"$Q7"},"h":{"r":["$","$1","h",{"children":[null,["$","$L15",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#FAFAF9"}]]}],["$","$L17",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$18",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Integration guide · bitcoin-vision"}],["$","meta","1",{"name":"description","content":"How to add bitcoin-vision to a hardware or mobile wallet: the Rust API, both pipelines, the review flow users need, and a security checklist."}],["$","link","2",{"rel":"icon","href":"/icon.jpg?icon.2v-l2g_iz5g7d.jpg","sizes":"200x200","type":"image/jpeg"}],["$","link","3",{"rel":"apple-touch-icon","href":"/apple-icon.jpg?apple-icon.2v-l2g_iz5g7d.jpg","sizes":"200x200","type":"image/jpeg"}],["$","$L19","4",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@1a","v":null,"s":"$6"}},"a":"$@1b","u":"$@1c","b":"6EEBDiBICq6frlCKc7JPG"}
+1e:I[22016,["$2","$b"],""]
+1f:I[97367,["$2"],"OutletBoundary"]
+e:["$","figure",null,{"className":"pipes-fig","aria-label":"bitcoin-vision pipelines: BIP39 and Penlock","children":[["$","div","BIP39 recovery phrase",{"className":"lane","children":[["$","p",null,{"className":"lane-tag","children":"BIP39 recovery phrase"}],["$","ol",null,{"children":[["$","li","Photo",{"children":[["$","b",null,{"children":"Photo"}],["$","span",null,{"children":"JPEG, PNG, WebP"}]]}],["$","li","Find",{"children":[["$","b",null,{"children":"Find"}],["$","span",null,{"children":"box each word"}]]}],["$","li","Read",{"children":[["$","b",null,{"children":"Read"}],["$","span",null,{"children":"letter by letter"}]]}],["$","li","Match",{"children":[["$","b",null,{"children":"Match"}],["$","span",null,{"children":"vs 2048 words"}]]}],["$","li","Check",{"children":[["$","b",null,{"children":"Check"}],["$","span",null,{"children":"BIP39 checksum"}]]}],["$","li","You review",{"className":"is-you","children":[["$","b",null,{"children":"You review"}],["$","span",null,{"children":"pick, reveal, forget"}]]}]]}]]}],["$","div","Penlock share",{"className":"lane","children":[["$","p",null,{"className":"lane-tag","children":"Penlock share"}],["$","ol",null,{"children":[["$","li","Photo",{"children":[["$","b",null,{"children":"Photo"}],["$","span",null,{"children":"one cut strip"}]]}],["$","li","Find",{"children":[["$","b",null,{"children":"Find"}],["$","span",null,{"children":"cut 72 cells"}]]}],["$","li","Classify",{"children":[["$","b",null,{"children":"Classify"}],["$","span",null,{"children":"vs 29 symbols"}]]}],["$","li","Check",{"children":[["$","b",null,{"children":"Check"}],["$","span",null,{"children":"each row"}]]}],["$","li","Combine",{"children":[["$","b",null,{"children":"Combine"}],["$","span",null,{"children":"any 2 of 3"}]]}],["$","li","You review",{"className":"is-you","children":[["$","b",null,{"children":"You review"}],["$","span",null,{"children":"fix, reveal, forget"}]]}]]}]]}]]}]
+1d:T31b5,<p>The BIP39 pipeline uses three models: it boxes each word, reads its letters, then scores the crop against all 2048 seed words. The Penlock pipeline uses one 29-way cell classifier and leaves the checks and recombination to the <code>penlock</code> crate.</p>
+<h2 id="quickstart">Quickstart</h2>
+<p>You can scan the included example photo with the bundled models and no setup beyond a Rust toolchain.</p>
+<ol>
+<li>Clone <a href="https://github.com/penlock-io/bitcoin-vision" target="_blank" rel="noreferrer">penlock-io/bitcoin-vision</a>.</li>
+<li>Run the example scan:</li>
+</ol>
+<pre><code class="language-bash">cargo run --release -p bitcoin-vision-words --features bundled-models --example scan -- \
+  words/examples/photos/handwritten.png new-output-directory
+</code></pre>
+<ol start="3">
+<li>Open <code>new-output-directory</code>. It holds an overlay of what was found, previews, the crop of every word, and <code>result.json</code> with the full read. Replace the photo path to scan your own image.</li>
+</ol>
+<p>Useful checks while integrating:</p>
+<pre><code class="language-bash">cargo test --locked --workspace --all-features                                    # full test suite
+cargo test --locked -p bitcoin-vision-words --features bundled-models --example scan  # BIP39 example as a test
+cargo test --locked -p penlock-scan --features bundled-models,print --example scan    # Penlock example as a test
+cargo check --locked --no-default-features                                        # build without bundled models
+cargo doc --locked --no-deps --features bundled-models                            # local API reference
+</code></pre>
+<p>The crate is marked <code>publish = false</code>, so depend on it by git path or a vendored copy, pinned to a commit.</p>
+<h2 id="library-api">Library API</h2>
+<p>One <code>Scanner</code>, built once, scans any number of photos: load models at startup, then call <code>scan</code> per image.</p>
+<pre><code class="language-rust">use bitcoin_vision::words::{ScanOptions, Scanner};
+
+// Bundled models (feature `bundled-models`, about 24.7 MB)
+let scanner = Scanner::bundled()?; // load once, reuse
+
+let photo = std::fs::read(&quot;handwritten-words.jpg&quot;)?;
+let document = scanner.scan(&amp;photo, ScanOptions::default())?.document();
+
+for &amp;index in &amp;document.ordered_observations {
+    let word = &amp;document.observations[index];
+    // one handwritten word, in reading order: word.selected, word.quad, word.candidates
+}
+</code></pre>
+<p>This follows the README example; check <code>cargo doc</code> for exact types and error handling. <code>bitcoin_vision::penlock</code> is the Penlock scanner, built the same way.</p>
+<p>On devices where models ship separately from firmware, load them yourself with <code>Scanner::new(ModelBytes { .. })</code>. It takes five artifacts:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Artifact</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Detector (<code>word-detector.onnx</code>)</td>
+<td>Finds each handwritten word on the page</td>
+</tr>
+<tr>
+<td>Recogniser (<code>text-recogniser.onnx</code>)</td>
+<td>Reads the letters in each word crop</td>
+</tr>
+<tr>
+<td>Dictionary</td>
+<td>The recogniser&#39;s character set</td>
+</tr>
+<tr>
+<td>Classifier (<code>word-reference.onnx</code>)</td>
+<td>Scores the crop against all 2048 BIP39 words</td>
+</tr>
+<tr>
+<td>Calibration</td>
+<td>Turns classifier scores into honest probabilities</td>
+</tr>
+</tbody></table></div>
+<p>What each word observation gives you:</p>
+<ul>
+<li><strong>Polygon</strong> of the word on the original photo, for drawing boxes.</li>
+<li><strong>Crop</strong> exactly as the models saw it, for showing the user.</li>
+<li><strong>OCR text</strong>, the raw letter-by-letter read.</li>
+<li><strong>Probabilities over all 2048 words</strong>, so you can show the top alternatives.</li>
+<li><strong>The branch chosen</strong>, which tells you how the final word was decided.</li>
+</ul>
+<p>The document also reports <strong>whether the phrase passes its BIP39 checksum</strong>. Treat a pass as a good sign, not proof: roughly 1 in 16 wrong 12-word phrases still pass.</p>
+<h2 id="penlock-shares">Penlock shares</h2>
+<p>The Penlock pipeline reads a cut worksheet strip, one symbol at a time, and hands Penlock&#39;s own arithmetic everything it needs to rebuild the seed from any 2 of 3 shares.</p>
+<p><a href="https://groups.google.com/g/bitcoindev/c/8LkdxVc_nI0" target="_blank" rel="noreferrer">Penlock</a> splits a BIP39 seed into three paper shares with a printable paper tool. Each share is 12 rows of 6 symbols from a 29-symbol alphabet. Each row carries its own check symbols, so a single wrong symbol in a word is caught.</p>
+<p>How the read works:</p>
+<ol>
+<li>Find the strip in the photo and straighten it.</li>
+<li>Cut it into one image per symbol: 72 cells.</li>
+<li>Classify each cell with <code>cell-reference.onnx</code>, a 29-way classifier. Every cell gets a probability over all 29 symbols, not just a best guess.</li>
+<li>Run the per-row check. A row that fails points at its least certain cell; show the user that cell&#39;s top candidates.</li>
+<li>After two shares are read and confirmed, pass them to the <code>penlock</code> crate to recombine.</li>
+</ol>
+<p>Where the code lives:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Crate</th>
+<th>Job</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>penlock-scan</code></td>
+<td>Photo to symbols (<code>bitcoin_vision::penlock</code> in the root crate)</td>
+</tr>
+<tr>
+<td><code>penlock</code></td>
+<td>Penlock arithmetic: checks and 2-of-3 recombination</td>
+</tr>
+</tbody></table></div>
+<p>Both are crates in the repository&#39;s root workspace, beside <code>bitcoin-vision-words</code>.</p>
+<p>Tell users to keep the three shares in separate places. Two shares stored together are as good as the seed itself.</p>
+<h2 id="hardware-wallet-integration">Hardware wallet integration</h2>
+<p>bitcoin-vision fits inside a signing device because it is small and fully offline: reading Penlock shares needs one 1.6 MB model, reading BIP39 phrases needs three models totalling 24.7 MB, and nothing leaves the device. A Penlock app for Passport Prime uses it to read shares; so far it has run only on the Passport Prime simulator, not on real hardware.</p>
+<p>What to plan for:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Area</th>
+<th>What to decide</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Storage</td>
+<td>1.6 MB of ONNX models for Penlock only (<code>cell-reference.onnx</code>), 24.7 MB for BIP39 (<code>word-detector.onnx</code> 4.7 MB, <code>text-recogniser.onnx</code> 7.7 MB, <code>word-reference.onnx</code> 12.3 MB). Ship them in the app bundle, or load them with <code>Scanner::new(ModelBytes { .. })</code> from a separate signed blob.</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>Keep one <code>Scanner</code> alive per session instead of reloading models per photo. Measure peak use on your target hardware.</td>
+</tr>
+<tr>
+<td>Compute</td>
+<td>Measure scan time on your hardware and show progress while it runs.</td>
+</tr>
+<tr>
+<td>Camera</td>
+<td>Ask for the whole page or strip, flat and evenly lit. Low contrast and odd layouts are the main causes of misreads.</td>
+</tr>
+<tr>
+<td>Model updates</td>
+<td>Treat models as firmware: sign them, pin their hashes, and update them only through your normal firmware path.</td>
+</tr>
+<tr>
+<td>Licensing</td>
+<td>Keep the Apache-2.0 notice for the bundled Paddle/RapidOCR models in your device&#39;s open-source notices.</td>
+</tr>
+</tbody></table></div>
+<p>A build without bundled models is supported (<code>--no-default-features</code>), so firmware can carry the code and fetch nothing at runtime while models arrive with the app package.</p>
+<p>The Passport Prime integration is the Penlock app, built at a hackathon by a team of three and tested only on the simulator. Before shipping, measure storage, memory and scan time on a real device.</p>
+<h2 id="mobile-integration">Mobile integration</h2>
+<p>The repository&#39;s <code>example-android-app</code> is the reference for phones: it reads Penlock strips and BIP39 pages through the camera, with the Rust crates compiled into the app.</p>
+<ol>
+<li>Start from <code>example-android-app</code>. Its <code>rust/</code> workspace holds <code>bitcoin-vision-mobile</code>, the UniFFI bridge from Kotlin to both scanners.</li>
+<li>Build it with <code>./gradlew :app:assembleDebug</code>: Gradle compiles the Rust code for Android, generates the Kotlin bindings and copies in the models.</li>
+<li>Keep camera frames in memory. Do not write them to the gallery, cache or crash reports.</li>
+<li>Follow the review flow in the next section before showing or using any result.</li>
+</ol>
+<p>The example app is a full mainnet wallet: never import a real seed just to try it. The README includes emulator recordings of both flows; use them as the UX baseline. iOS has no example yet: the same Rust crates are the starting point.</p>
+<h2 id="ux-requirements">UX requirements</h2>
+<p>Never turn a scan straight into a wallet: every integration should run the same five steps, and let the user stop at any of them.</p>
+<ol>
+<li><strong>Frame.</strong> Show a live guide for the page or strip. Say up front: practice words for demos, a real backup only on a trusted offline device.</li>
+<li><strong>Read.</strong> Show progress through the stages: find, read, match, check.</li>
+<li><strong>Review.</strong> List every word or row. Mark low-confidence ones and ask the user to pick from the top candidates, showing the crop beside them. Never auto-pick a near tie such as abuse or amuse.</li>
+<li><strong>Confirm.</strong> Show whether the checksum or the Penlock row checks pass, and ask the user to compare with their paper anyway.</li>
+<li><strong>Reveal and forget.</strong> Keep words hidden until the user taps Reveal. One Forget action wipes the photo, crops and result.</li>
+</ol>
+<p>For each word, keep its evidence one tap away: the crop, the OCR text and the top three candidates with their probabilities. That is what lets a user trust or correct the read.</p>
+<h2 id="security-checklist">Security checklist</h2>
+<p>The photo, the crops and the JSON result can each contain the full secret, so your app must treat all three like the seed itself.</p>
+<ul>
+<li><input disabled="" type="checkbox"> No network permission in the scanning component, and no analytics or crash reporting that could capture images or results.</li>
+<li><input disabled="" type="checkbox"> Frames, crops and results held in memory only; nothing written to disk, gallery, clipboard or logs.</li>
+<li><input disabled="" type="checkbox"> One Forget action wipes the photo, crops and result, and runs automatically when the user leaves the flow.</li>
+<li><input disabled="" type="checkbox"> Words hidden until the user taps Reveal; no copy button on hardware wallets.</li>
+<li><input disabled="" type="checkbox"> Every low-confidence word or row confirmed by the user before use.</li>
+<li><input disabled="" type="checkbox"> Users told that a passing checksum is not proof, and asked to compare with their paper.</li>
+<li><input disabled="" type="checkbox"> Penlock users told to keep the three shares in separate places.</li>
+<li><input disabled="" type="checkbox"> Models signed and their hashes pinned; updated only through your firmware or app release path.</li>
+<li><input disabled="" type="checkbox"> Dependencies pinned to a commit, with the lockfile reviewed before release.</li>
+<li><input disabled="" type="checkbox"> Demos and marketing use practice words only, never a real backup.</li>
+</ul>
+<h2 id="limits-and-licensing">Limits and licensing</h2>
+<p>bitcoin-vision is an early, open-source prototype: plan your UX around its limits rather than hiding them.</p>
+<ul>
+<li>English BIP39 words only.</li>
+<li>Poor contrast, ambiguous letters and unusual page layouts cause misreads.</li>
+<li>A passing checksum does not prove a correct read.</li>
+<li>The crate is not published to crates.io (<code>publish = false</code>).</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Part</th>
+<th>License</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Project code and project-authored models</td>
+<td>MIT or Apache-2.0, your choice</td>
+</tr>
+<tr>
+<td>Paddle / RapidOCR models</td>
+<td>Apache-2.0 only; keep their license and attribution when redistributing</td>
+</tr>
+</tbody></table></div>
+<h2 id="sources">Sources</h2>
+<ul>
+<li><a href="https://github.com/penlock-io/bitcoin-vision" target="_blank" rel="noreferrer">penlock-io/bitcoin-vision README</a></li>
+<li><a href="https://groups.google.com/g/bitcoindev/c/8LkdxVc_nI0" target="_blank" rel="noreferrer">Announcing Penlock v1 (bitcoindev)</a></li>
+</ul>
+f:["$","div",null,{"className":"prose","dangerouslySetInnerHTML":{"__html":"$1d"}}]
+10:["$","footer",null,{"className":"footer","children":[["$","b",null,{"children":"bitcoin-vision"}],["$","span",null,{"children":"MIT / Apache-2.0"}],["$","a",null,{"href":"https://github.com/penlock-io/bitcoin-vision","children":"GitHub ↗"}],["$","a",null,{"href":"https://github.com/penlock-io","children":"Penlock ↗"}],["$","$L1e",null,{"href":"/docs/","children":"Integration guide"}]]}]
+11:["$","script","script-0",{"src":"/_next/static/chunks/2qe36aokysctc.js","async":true}]
+12:["$","$L1f",null,{"children":["$","$18",null,{"name":"Next.MetadataOutlet","children":"$@20"}]}]
+6:300
+20:null
+1c:true
+6:C
+1b:0
+8:"$undefined"
+5:"$undefined"
+1a:"$undefined"
+13:"$undefined"
