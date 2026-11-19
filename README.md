@@ -21,9 +21,12 @@ cargo install wasm-bindgen-cli --version 0.2.130 --locked
 
 ## Deploy to GitHub Pages
 
-Push to `main` on GitHub, then **Settings › Pages › Source: GitHub Actions**.
-`.github/workflows/deploy.yml` builds the model and the site and publishes `out/`.
-The base path (`/<repo>/`) is set automatically.
+Push to `main` on GitHub. `.github/workflows/deploy.yml` builds the model and the site and pushes
+`out/` to the `gh-pages` branch; set **Settings › Pages › Source: Deploy from a branch › `gh-pages` / (root)**.
+
+The `CNAME` file at the repo root sets the custom domain (`bitcoin-vision.penlock.io`) and makes the
+base path empty. Delete it to serve from `https://<user>.github.io/<repo>/` instead; the base path
+(`/<repo>/`) is then set automatically.
 
 ## How the model gets into the page
 
