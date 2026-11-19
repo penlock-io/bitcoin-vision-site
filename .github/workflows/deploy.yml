@@ -1,5 +1,8 @@
 # Builds the model to WebAssembly and the site to static files, then
-# publishes both to GitHub Pages. Settings › Pages › Source: GitHub Actions.
+# publishes both to the gh-pages branch.
+# Settings › Pages › Source: Deploy from a branch › gh-pages / (root).
+# A CNAME file at the repo root sets the custom domain (GitHub only reads it
+# when Pages serves from a branch, which is why this pushes to gh-pages).
 name: Deploy to GitHub Pages
 
 on:
@@ -7,10 +10,10 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# Read-only by default. Only the deploy job, which runs no build code, can
+# push; the build (npm, cargo, third-party actions) never holds a write token.
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
@@ -40,28 +43,44 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - id: pages
-        uses: actions/configure-pages@v5
+      # "" with a custom domain (CNAME file), "/<repo>" for a project site.
+      - id: base
+        run: |
+          if [ -s CNAME ]; then echo "path=" >> "$GITHUB_OUTPUT"
+          else echo "path=/${GITHUB_REPOSITORY#*/}" >> "$GITHUB_OUTPUT"; fi
       - run: npm run build
         env:
-          # "/<repo>" for a project site, "" for a user site or custom domain.
-          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.base.outputs.path }}
           # Where opt-in training samples go (upload-worker/). Set it in
           # Settings › Secrets and variables › Actions › Variables. Unset: no prompt.
           NEXT_PUBLIC_SAMPLE_UPLOAD_URL: ${{ vars.SAMPLE_UPLOAD_URL }}
           NEXT_TELEMETRY_DISABLED: 1
-      - run: touch out/.nojekyll
+      - run: if [ -s CNAME ]; then cp CNAME out/CNAME; fi
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
+          name: site
           path: out
+          if-no-files-found: error
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: write # push to gh-pages
     steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: out
+      # upload-artifact drops dotfiles; without this GitHub hides _next/.
+      - run: touch out/.nojekyll
+
+      # Pinned to a commit (v4.1.0) so a later change to the action can't run
+      # with this job's write token.
+      - uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4.1.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: out
+          publish_branch: gh-pages
+          force_orphan: true # keep only the latest build, not every model binary
